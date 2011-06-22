@@ -1,0 +1,15 @@
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\SimplePhotoGallery.Core.dll
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\SimplePhotoGallery.Core.pdb
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\Microsoft.Practices.Unity.dll
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\ResolveAssemblyReference.cache
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\SimplePhotoGallery.Core.dll
+I:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\SimplePhotoGallery.Core.pdb
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\SimplePhotoGallery.Core.dll
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\SimplePhotoGallery.Core.pdb
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\Autofac.dll
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\Autofac.Integration.Mvc.dll
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\SimplePhotoGallery.Core.dll
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\obj\Debug\SimplePhotoGallery.Core.pdb
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\FluentValidation.dll
+D:\SimplePhotoGallery\SimplePhotoGallery.Core\bin\Debug\FluentValidation.Mvc.dll

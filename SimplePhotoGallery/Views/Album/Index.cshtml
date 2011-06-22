@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SimplePhotoGallery.GalleryModule.Models.Album>
+
+@{
+    ViewBag.PageTitle = "Manage Album";
+}
+
+<h2>Manage Album</h2>
+<table class="table1">
+    <tr  class="nodrop nodrag">
+        <th>Album Title</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @if(item.Publish)
+            { 
+                <text>Published</text>
+            }
+            else
+            {
+                <text>Unpublished</text> 
+            }
+        </td>
+        <td>
+            @Html.ActionLink("View", "View", "Album", new { id = item.Id }, null) |
+            @Html.ActionLink("Edit", "Save", "Album", new { id = item.Id }, null) |
+            @Html.ActionLink(item.Publish ? "Unpublish" : "Publish", "ChangePublishStatus", "Album", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "Album", new { id = item.Id }, null)
+        </td>
+    </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="5" align="center">
+            <em>No records found</em>
+        </td>
+    </tr>
+}
+</table>

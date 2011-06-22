@@ -1,0 +1,37 @@
+﻿@model SimplePhotoGallery.GalleryModule.Models.Album
+
+@{
+    ViewBag.PageTitle = "Save Album";
+}
+
+@using (Html.BeginForm("Save", "Album", FormMethod.Post, new{@class ="f-wrap-1"}))
+{
+	    <div class="req"><b>*</b> Indicates required field</div>		
+	    <fieldset>
+	        <h3>Create Album</h3>
+            @Html.ValidationSummary()
+            
+            <label for="title"><b><span class="req">*</span>Album Title:</b>
+	        @Html.TextBoxFor(x=>x.Title)
+	        </label>
+
+            <label for="description"><b><span class="req">*</span>Description:</b>
+	        @Html.TextAreaFor(x=>x.Description)
+	        </label>
+
+            <label for="publish"><b>Publish:</b>
+	        @Html.CheckBoxFor(x => x.Publish) <br />
+	        </label>
+            @if (Model != null)
+            {
+            @Html.HiddenFor(x => x.Created)
+            @Html.HiddenFor(x => x.Updated)
+            }
+            <div class="f-submit-wrap">
+			<input type="submit" value="Submit" class="f-submit" tabindex="12" /><br />
+			</div>
+        </fieldset>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index", "Album")
+</p>

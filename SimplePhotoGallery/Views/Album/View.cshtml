@@ -1,0 +1,43 @@
+﻿@model SimplePhotoGallery.GalleryModule.Models.Album
+@{
+    ViewBag.PageTitle = "View Album";
+}
+@section header
+{
+    <link href="@Url.Content("~/Content/colorbox.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/jquery-ui-1.8.12.custom.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery.colorbox-min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.12.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/imageResize.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/scrollingContent.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("a[rel='slideshow']").colorbox({ slideshow: true });
+            $("#spinner").hide();
+        });
+    </script>
+}
+<div style="float: left; width: 70%">
+    @Html.Partial("_LoadPhotoTemplates", Model.Photos)
+</div>
+<div style="float: left; width: 30%;">
+    <div class="featurebox">
+        <h3>@Model.Title</h3>
+        <p>
+            @Model.Description
+        </p>
+        <div style="clear: left">
+            <div>
+                <span class="thumbnail">
+                    <img src="@Url.Content("~/Media/Default/album-128X128.png")" alt="" /></span>
+            </div>
+            <br />
+            <dl>
+                <dd class="date">
+                    Created: @Model.Created.ToString("MMMM dd, yyyy")</dd>
+                <dd class="date">
+                    Updated: @Model.Updated.ToString("MMMM dd, yyyy")</dd>
+            </dl>
+        </div>
+    </div>
+</div>

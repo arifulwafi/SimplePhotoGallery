@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SimplePhotoGallery.GalleryModule.Models.Photo>
+@if (Model != null)
+{
+    <p class="highlight">
+        Photo Count: <span id="itemCount">@Model.Count()</span></p>
+}
+<div id="grid_slider" style="width: 200px" class="ui-slider">
+    <div class="ui-slider-handle" style="left: 398px;">
+    </div>
+    <br />
+</div>
+<ul id="grid">
+    @if (Model != null && Model.Any())
+    {
+        string virtualPathLarge;
+        foreach (var item in Model)
+        {
+            virtualPathLarge = item.PhotoFile != null && !string.IsNullOrEmpty(item.PhotoFile.Name) ? string.Format("{0}/{1}", item.AlbumId.ToString(), item.PhotoFile.Id.ToString() + "-420" + item.PhotoFile.Extension) : "photo-420.png";
+        <li>
+            <a href="@Url.Content("~/Media/Album/" + virtualPathLarge)" rel="slideshow" title="@item.Title">
+                <img src="@Url.Content("~/Media/Album/" + virtualPathLarge)" width="300" height="300" alt="" />
+            </a>
+        </li>
+        }
+    }
+</ul>

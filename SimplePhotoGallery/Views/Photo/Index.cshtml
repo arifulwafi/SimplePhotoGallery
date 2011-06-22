@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SimplePhotoGallery.GalleryModule.Models.Photo>
+
+@{
+    ViewBag.PageTitle = "Manage Photo";
+}
+@section header
+{
+<link href="@Url.Content("~/Content/colorbox.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/jquery.colorbox-min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("a[rel='slideshow']").colorbox({ slideshow: true });
+    });
+</script>
+}
+<h2>Manage Photo</h2>
+<table class="table1">
+    <tr class="nodrop nodrag">
+        <th>Preview</th>
+        <th>Photo Title</th>
+        <th>Album Name</th>
+        <th></th>
+    </tr>
+@if (Model != null && Model.Any())
+{
+    string virtualPathSmall, virtualPathLarge;
+    foreach(var item in Model) 
+    {
+        virtualPathSmall = item.PhotoFile!=null && !string.IsNullOrEmpty(item.PhotoFile.Name) ? string.Format("{0}/{1}", item.AlbumId.ToString(), item.PhotoFile.Id.ToString()+"-48X48" + item.PhotoFile.Extension) : "photo-48X48.png";
+        virtualPathLarge = item.PhotoFile != null && !string.IsNullOrEmpty(item.PhotoFile.Name) ? string.Format("{0}/{1}", item.AlbumId.ToString(), item.PhotoFile.Id.ToString() + "-420" + item.PhotoFile.Extension) : "photo-420.png";
+    <tr>
+        <td>
+            <span class="thumbnail"><a href="@Url.Content("~/Media/Album/" + virtualPathLarge)" rel="slideshow"><img border="0" src="@Url.Content("~/Media/Album/" + virtualPathSmall)" alt="" /></a></span>
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @item.Album.Title
+        </td>
+        <td>
+            @Html.ActionLink("View", "View", "Photo", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete", "Delete", "Photo", new { id = item.Id }, null)
+        </td>
+    </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="5" align="center">
+            <em>No records found</em>
+        </td>
+    </tr>
+}
+</table>
+

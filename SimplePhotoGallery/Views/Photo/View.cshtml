@@ -1,0 +1,28 @@
+﻿@model SimplePhotoGallery.GalleryModule.Models.Photo
+
+@{
+    ViewBag.PageTitle = "View Photo";
+}
+
+<fieldset class="featurebox">
+    <h3>@Model.Title</h3>
+    <p>@Model.Description</p>
+    <p>
+        @{
+            var virtualPath = Model.PhotoFile != null & !string.IsNullOrEmpty(Model.PhotoFile.Name) ? Model.AlbumId + "/Photo/" + Model.Id + "-420" + Model.PhotoFile.Extension : "default-64x64.png"; 
+            <span class="thumbnail"><img src="@Url.Content("~/Media/Album/" + virtualPath)" alt="" /></span>
+        }
+    </p>
+    <div style="clear:left">
+    @Model.Description  <br />
+        <dl>
+            <dd class="date">Created: @Model.Created</dd>
+            <dd class="date">Updated: @Model.Updated</dd>
+        </dl>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Save", "Photo", new { id = Model.Id }, null) |
+    @Html.ActionLink("Back to List", "Index", "Photo")
+</p>
+

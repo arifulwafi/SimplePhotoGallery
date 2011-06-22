@@ -1,0 +1,6 @@
+D:\SimplePhotoGallery\GalleryModule.Tests\bin\Debug\GalleryModule.Tests.dll
+D:\SimplePhotoGallery\GalleryModule.Tests\bin\Debug\GalleryModule.Tests.pdb
+D:\SimplePhotoGallery\GalleryModule.Tests\bin\Debug\nunit.framework.dll
+D:\SimplePhotoGallery\GalleryModule.Tests\obj\Debug\ResolveAssemblyReference.cache
+D:\SimplePhotoGallery\GalleryModule.Tests\obj\Debug\GalleryModule.Tests.dll
+D:\SimplePhotoGallery\GalleryModule.Tests\obj\Debug\GalleryModule.Tests.pdb

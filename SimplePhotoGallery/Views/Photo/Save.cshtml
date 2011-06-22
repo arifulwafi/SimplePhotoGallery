@@ -1,0 +1,42 @@
+﻿@model SimplePhotoGallery.GalleryModule.Models.Photo
+
+@{
+    ViewBag.PageTitle = "Save Photo";
+}
+
+@using (Html.BeginForm("Save", "Photo",new {id= Model!=null ? Model.Id.ToString() : string.Empty}, FormMethod.Post, new { @class ="f-wrap-1", enctype = "multipart/form-data" }))
+{
+	<div class="req"><b>*</b> Indicates required field</div>		
+	    <fieldset>
+	        <h3>Add Photo</h3>
+            @Html.ValidationSummary()
+            
+            <label for="album"><b><span class="req">*</span>Select an Album</b>
+	        @Html.DropDownListFor(x=>x.AlbumId, ViewBag.Albums as IEnumerable<SelectListItem>, "Select")
+	        </label>
+
+            <label for="title"><b><span class="req">*</span>Photo Title:</b>
+	        @Html.TextBoxFor(x=>x.Title)
+	        </label>
+            
+            <label for="thumbnail"><b><span class="req">*</span>Upload a Photo:</b>
+	        <input type="file" name="file" />
+	        </label>
+
+            <label for="description"><b>Description:</b>
+	        @Html.TextAreaFor(x=>x.Description)<br />
+	        </label>
+            @if (Model != null)
+            {
+                @Html.HiddenFor(x=>x.IsEdit)
+                @Html.HiddenFor(x => x.Created)
+                @Html.HiddenFor(x => x.Updated)
+            }
+            <div class="f-submit-wrap">
+			<input type="submit" value="Submit" class="f-submit" tabindex="12" /><br />
+			</div>
+        </fieldset>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index", "Photo")
+</p>
